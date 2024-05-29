@@ -30,15 +30,47 @@ DELETE http://localhost:8000/books/2
 # Auth Test
 ###
 GET http://localhost:8000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJlNDMzMWM0ZS1hNGJmLTQ4YTctYjI2Yi1hMDkyODU0MGJlYjciLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwiaWF0IjoxNzE2OTYyNDE1LCJleHAiOjE3MTY5NjI0NzV9.DzS6zbybxovAlJyJJDDEPJbsyb9xP5O1sYq5X1SqV-Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJpYXQiOjE3MTY5Njg0MzYsImV4cCI6MTcxNjk2ODQ5Nn0.vEe1Tw5bZ-ReHHrM6XRHs_vDZS83vQXdqKnn3Irp2pQ
+
+###
+GET http://localhost:8000/users/b33d92fc-15d3-4932-805c-904529926d65
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJpYXQiOjE3MTY5NjU1MTIsImV4cCI6MTcxNjk2NTU3Mn0.FJBxHAutg_LtfcpUTOQt6fLQqzINSZuBrZvlfKt7SRE
+
+###
+POST http://localhost:8000/users/create
+Content-Type: application/json
+
+{
+    "name": "Member baru",
+    "email": "member@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "admin"
+}
+
+###
+PUT http://localhost:8000/users/update/ee2987d1-0212-40b6-845d-98279ddc8025
+Content-Type: application/json
+
+{
+    "name": "Member baru v2",
+    "email": "member@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "admin"
+}
+
+###
+DELETE http://localhost:8000/users/delete/ee2987d1-0212-40b6-845d-98279ddc8025
+
 
 ###
 POST http://localhost:8000/register
 Content-Type: application/json
 
 {
-    "name": "John Doe",
-    "email": "john@gmail.com",
+    "name": "Member baru",
+    "email": "member@gmail.com",
     "password": "123456",
     "confPassword": "123456"
 }
@@ -57,3 +89,7 @@ GET http://localhost:8000/token
 
 ###
 DELETE http://localhost:8000/logout
+
+###
+GET http://localhost:8000/whoami
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiSmFuZUBnbWFpbC5jb20iLCJpYXQiOjE3MTY5Njg0OTUsImV4cCI6MTcxNjk2ODU1NX0.OcszmLfjzTBrqccCCktA3BzcgyBnb9QWy_F8jtJ4vRo
