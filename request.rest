@@ -1,0 +1,59 @@
+GET http://localhost:8000/books
+
+###
+GET http://localhost:8000/books/1
+
+###
+POST http://localhost:8000/books
+Content-Type: application/json
+
+{
+    "title": "Buku Tatang Supratman dari rest-client V2",
+    "author": "John Doe",
+    "price": 80000
+}
+
+###
+PUT http://localhost:8000/books/2
+Content-Type: application/json
+
+{
+    "title": "Buku Tatang Supratman V20",
+    "author": "Cucu John Doe Junior",
+    "price": 180000
+}
+
+###
+DELETE http://localhost:8000/books/2
+
+
+# Auth Test
+###
+GET http://localhost:8000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJlNDMzMWM0ZS1hNGJmLTQ4YTctYjI2Yi1hMDkyODU0MGJlYjciLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwiaWF0IjoxNzE2OTYyNDE1LCJleHAiOjE3MTY5NjI0NzV9.DzS6zbybxovAlJyJJDDEPJbsyb9xP5O1sYq5X1SqV-Q
+
+###
+POST http://localhost:8000/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@gmail.com",
+    "password": "123456",
+    "confPassword": "123456"
+}
+
+###
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "123456"
+}
+
+###
+GET http://localhost:8000/token
+
+###
+DELETE http://localhost:8000/logout

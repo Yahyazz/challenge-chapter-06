@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binar Rental Car | <%= title %>
+  </title>
+
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="./owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="./owlcarousel/owl.theme.default.min.css">
+  <!-- End Owl Carousel -->
+
+  <!-- Bootstrap 5.3.3 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- End Bootstrap 5.3.3 -->
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <!-- End Google Font -->
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- End AOS Library -->
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top bg-color-gray01" id="navbar">
+    <div class="container d-flex justify-content-between align-items-center py-2">
+      <a class="navbar-brand my-auto" href="#">
+        <img src="./img/logo.png" alt="Brand Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">BCR</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body justify-content-lg-end">
+          <div class="d-flex flex-column flex-lg-row gap-4 fw-medium">
+            <a class="nav-link my-auto" href="#our-service-section">Our Services</a>
+            <a class="nav-link my-auto" href="#why-us-section">Why Us</a>
+            <a class="nav-link my-auto" href="#testimonial-section">Testimonial</a>
+            <a class="nav-link my-auto" href="#faq-section">FAQ</a>
+            <button class="btn btn-bd-primary roboto-medium" type="submit"><a href="/login">Register</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="hero-section bg-color-gray01 overflow-hidden">
+    <div class="container h-100">
+      <div
+        class="h-100 d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center pt-3 pt-lg-5 pb-3 pb-lg-5">
+        <div class="hero-content col-12 col-lg-6" data-aos="fade-right">
+          <h1 class="roboto-bold lh-base pb-2">Sewa & Rental Mobil Terbaik di kawasan Magelang</h1>
+          <p class="roboto-light pe-5">Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik
+            dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.</p>
+          <a class="btn btn-bd-primary roboto-medium" href="/cars" role="button">Mulai Sewa Mobil</a>
+        </div>
+        <div class="hero-img" data-aos="fade-left">
+          <img src="./img/img_car.png" class="img-fluid" alt="Car Image for Hero Image">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container our-service-section" id="our-service-section">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center py-5 m-lg-5 row-gap-5">
+      <div class="service-img col-10 col-lg-6" data-aos="fade-in">
+        <img src="./img/img_service.png" alt="Service Image" class="img-fluid">
+      </div>
+      <div class="service-content col-12 col-lg-6 ps-lg-5">
+        <h2 class="roboto-bold fs-4 lh-base mb-2" data-aos="fade-down" data-aos-delay="100" data-aos-offset="0">Best Car
+          Rental for any kind of trip in Magelang!</h2>
+        <p class="roboto-light" data-aos="fade-down" data-aos-delay="200" data-aos-offset="0">Sewa mobil di Magelang
+          bersama Binar Car Rental jaminan harga lebih murah
+          dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis,
+          wedding, meeting, dll.</p>
+        <ul>
+          <li class="roboto-light mb-2" data-aos="fade-right" data-aos-delay="300" data-aos-offset="0">Sewa Mobil Dengan
+            Supir di Magelang 12 Jam</li>
+          <li class="roboto-light mb-2" data-aos="fade-right" data-aos-delay="400" data-aos-offset="0">Sewa Mobil Lepas
+            Kunci di Magelang 24 Jam</li>
+          <li class="roboto-light mb-2" data-aos="fade-right" data-aos-delay="500" data-aos-offset="0">Sewa Mobil Jangka
+            Panjang Bulanan</li>
+          <li class="roboto-light mb-2" data-aos="fade-right" data-aos-delay="600" data-aos-offset="0">Gratis Antar -
+            Jemput Mobil di Bandara</li>
+          <li class="roboto-light mb-2" data-aos="fade-right" data-aos-delay="700" data-aos-offset="0">Layanan Airport
+            Transfer / Drop In Out</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="container why-us-section mb-5" id="why-us-section">
+    <h2 class="roboto-bold fs-4 lh-base mb-2 text-center text-lg-start">Why Us?</h2>
+    <p class="roboto-light mb-5 text-center text-lg-start">Mengapa harus pilih Binar Car Rental?</p>
+    <div class="row row-gap-3 row-gap-lg-0">
+      <div class="col-12 col-lg-3" data-aos="flip-left" data-aos-delay="100" data-aos-offset="0">
+        <div class="card card-hover p-2 h-100">
+          <div class="fill bg-color-warning"></div>
+          <div class="card-body">
+            <img class="mb-4" src="./img/icon/icon_complete.png" alt="Icon Complete">
+            <h5 class="card-title roboto-bold fs-6 mb-4">Mobil Lengkap</h5>
+            <p class="card-text roboto-light fs-6 lh-sm">Tersedia banyak pilihan mobil, kondisi masih baru, bersih dan
+              terawat
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3" data-aos="flip-left" data-aos-delay="300" data-aos-offset="0">
+        <div class="card card-hover p-2 h-100">
+          <div class="fill bg-color-danger"></div>
+          <div class="card-body">
+            <img class="mb-4" src="./img/icon/icon_price.png" alt="Icon Price">
+            <h5 class="card-title roboto-bold fs-6 mb-4">Harga Murah</h5>
+            <p class="card-text roboto-light fs-6 lh-sm">Harga murah dan bersaing, bisa bandingkan harga kami dengan
+              rental mobil lain</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3" data-aos="flip-left" data-aos-delay="500" data-aos-offset="0">
+        <div class="card card-hover p-2 h-100">
+          <div class="fill bg-color-blue04"></div>
+          <div class="card-body">
+            <img class="mb-4" src="./img/icon/icon_24hrs.png" alt="Icon 24Hours">
+            <h5 class="card-title roboto-bold fs-6 mb-4">Layanan 24 Jam</h5>
+            <p class="card-text roboto-light fs-6 lh-sm">Siap melayani kebutuhan Anda selama 24 jam nonstop. Kami juga
+              tersedia di akhir minggu</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3" data-aos="flip-left" data-aos-delay="700" data-aos-offset="0">
+        <div class="card card-hover p-2 h-100">
+          <div class="fill bg-color-green04"></div>
+          <div class="card-body">
+            <img class="mb-4" src="./img/icon/icon_professional.png" alt="Icon Professional">
+            <h5 class="card-title roboto-bold fs-6 mb-4">Sopir Profesional</h5>
+            <p class="card-text roboto-light fs-6 lh-sm">Sopir yang profesional, berpengalaman, jujur, ramah dan selalu
+              tepat waktu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testimonial-section mt-5 pt-5 px-3 px-lg-0" id="testimonial-section">
+    <h2 class="roboto-bold fs-4 lh-base mb-2 text-center">Testimonial</h2>
+    <p class="roboto-light mb-4 text-center">Berbagai review positif dari para pelanggan kami</p>
+    <div class="owl-carousel owl-theme">
+      <div class="card mb-3 rounded-3 bg-color-gray01 border-0 box-shadow-low" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="100" data-aos-offset="0">
+        <div class="row g-0 py-4 d-flex flex-column flex-lg-row">
+          <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <img src="./img/img_photo-male.png" style="width: 6rem;" alt="Male Profile Picture">
+          </div>
+          <div class="col-lg-8 py-5">
+            <div class="card-body p-0 px-5 px-lg-0 pe-lg-4">
+              <div class="mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-start align-items-center">
+                <img src="./img/rate-star.png" class="mb-2" style="display: inline; width: auto; height: auto;"
+                  alt="Star Rating Image">
+              </div>
+              <p class="card-text mb-2 robhoto-light">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                sapiente odio porro, praesentium debitis placeat ex mollitia molestias nostrum ipsa ratione iure
+                dolorum. Odit dicta ullam nobis officiis sint ut."</p>
+              <h5 class="card-title roboto-medium fs-6">John Dee 32, Bromo</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 rounded-3 bg-color-gray01 border-0 box-shadow-low" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="300" data-aos-offset="0">
+        <div class="row g-0 py-4 d-flex flex-column flex-lg-row">
+          <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <img src="./img/img_photo-female.png" style="width: 6rem;" alt="Female Profile Picture">
+          </div>
+          <div class="col-lg-8 py-5">
+            <div class="card-body p-0 px-5 px-lg-0 pe-lg-4">
+              <div class="mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-start align-items-center">
+                <img src="./img/rate-star.png" class="mb-2" style="display: inline; width: auto; height: auto;"
+                  alt="Star Rating Image">
+              </div>
+              <p class="card-text mb-2 roboto-light">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                sapiente odio porro, praesentium debitis placeat ex mollitia molestias nostrum ipsa ratione iure
+                dolorum. Odit dicta ullam nobis officiis sint ut."</p>
+              <h5 class="card-title roboto-medium fs-6">John Dee 32, Bromo</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 rounded-3 bg-color-gray01 border-0 box-shadow-low" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="500" data-aos-offset="0">
+        <div class="row g-0 py-4 d-flex flex-column flex-lg-row">
+          <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <img src="./img/img_photo-male.png" style="width: 6rem;" alt="Male Profile Picture">
+          </div>
+          <div class="col-lg-8 py-5">
+            <div class="card-body p-0 px-5 px-lg-0 pe-lg-4">
+              <div class="mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-start align-items-center">
+                <img src="./img/rate-star.png" class="mb-2" style="display: inline; width: auto; height: auto;"
+                  alt="Star Rating Image">
+              </div>
+              <p class="card-text mb-2 roboto-light">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                sapiente odio porro, praesentium debitis placeat ex mollitia molestias nostrum ipsa ratione iure
+                dolorum. Odit dicta ullam nobis officiis sint ut."</p>
+              <h5 class="card-title roboto-medium fs-6">John Dee 32, Bromo</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-button-group">
+      <button type="button" class="btn btn-bd-arrow arrow-prev">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          <path fill="none" d="M0 0h24v24H0z"></path>
+        </svg>
+      </button>
+      <button type="button" class="btn btn-bd-arrow arrow-next">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"></path>
+          <path fill="none" d="M0 0h24v24H0z"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+  <section class="container cta-banner my-5 py-5">
+    <div
+      class="card w-100 bg-color-blue04 text-white border-0 rounded-4 d-flex justify-content-center align-items-center"
+      data-aos="zoom-in" data-aos-duration="1000">
+      <div class="card-body py-5 mt-5 mt-lg-0 px-2 px-lg-5 col-8 text-center">
+        <h5 class="card-title roboto-bold fs-2 mb-5 mb-lg-3">Sewa Mobil di Magelang Sekarang</h5>
+        <p class="card-text roboto-light mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a class="btn btn-bd-primary roboto-medium" href="/cars" role="button">Mulai Sewa Mobil</a>
+      </div>
+    </div>
+  </section>
+  <section class="faq-section container my-5 pb-lg-5" id="faq-section">
+    <div class="row">
+      <div class="col-12 col-lg-5 text-center text-lg-start" data-aos="fade-right">
+        <h2 class="roboto-bold fs-4 lh-base mb-2">Frequently Asked Question</h2>
+        <p class="roboto-light mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      </div>
+      <div class="col-12 col-lg-7">
+        <div class="accordion" id="accordion" data-aos="fade-up" data-aos-offset="0" data-aos-delay="100">
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed roboto-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Apa saja syarat yang dibutuhkan?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
+              <div class="accordion-body roboto-light">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta quo officiis asperiores, soluta
+                aspernatur animi quia vel. Ratione nulla numquam animi in velit deserunt doloribus eligendi maxime vel
+                consequuntur.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion" id="accordion" data-aos="fade-up" data-aos-offset="0" data-aos-delay="300">
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed roboto-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Berapa hari minimal sewa mobil lepas kunci?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
+              <div class="accordion-body roboto-light">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta quo officiis asperiores, soluta
+                aspernatur animi quia vel. Ratione nulla numquam animi in velit deserunt doloribus eligendi maxime vel
+                consequuntur.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion" id="accordion" data-aos="fade-up" data-aos-offset="0" data-aos-delay="500">
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed roboto-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                Berapa hari sebelumnya sabaiknya booking sewa mobil?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
+              <div class="accordion-body roboto-light">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta quo officiis asperiores, soluta
+                aspernatur animi quia vel. Ratione nulla numquam animi in velit deserunt doloribus eligendi maxime vel
+                consequuntur.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion" id="accordion" data-aos="fade-up" data-aos-offset="0" data-aos-delay="700">
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed roboto-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                Apakah Ada biaya antar-jemput?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordion">
+              <div class="accordion-body roboto-light">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta quo officiis asperiores, soluta
+                aspernatur animi quia vel. Ratione nulla numquam animi in velit deserunt doloribus eligendi maxime vel
+                consequuntur.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion" id="accordion" data-aos="fade-up" data-aos-offset="0" data-aos-delay="900">
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed roboto-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                Bagaimana jika terjadi kecelakaan
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordion">
+              <div class="accordion-body roboto-light">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta quo officiis asperiores, soluta
+                aspernatur animi quia vel. Ratione nulla numquam animi in velit deserunt doloribus eligendi maxime vel
+                consequuntur.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="container d-flex flex-column flex-lg-row justify-content-between py-5 mb-5" data-aos="fade-up"
+    data-aos-duration="500">
+    <div class="col-lg-3">
+      <p class="roboto-light">Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+      <p class="roboto-light">binarcarrental@gmail.com</p>
+      <p class="roboto-light">081-233-334-808</p>
+    </div>
+    <div class="col-lg-1">
+      <a href="#our-service-section" class="text-decoration-none text-black">
+        <p class="roboto-regular">Our services</p>
+      </a>
+      <a href="#why-us-section" class="text-decoration-none text-black">
+        <p class="roboto-regular">Why Us</p>
+      </a>
+      <a href="#testimonial-section" class="text-decoration-none text-black">
+        <p class="roboto-regular">Testimonial</p>
+      </a>
+      <a href="#faq-section" class="text-decoration-none text-black">
+        <p class="roboto-regular">FAQ</p>
+      </a>
+    </div>
+    <div class="col-lg-3 pb-3 pb-lg-0">
+      <p class="roboto-light">Connect with us</p>
+      <div class="icon-grup d-flex column-gap-3">
+        <a href="#" class="text-decoration-none text-black">
+          <img src="./img/icon/icon_facebook.png" alt="Facebook Icon">
+        </a>
+        <a href="#" class="text-decoration-none text-black">
+          <img src="./img/icon/icon_instagram.png" alt="Instagram Icon">
+        </a>
+        <a href="#" class="text-decoration-none text-black">
+          <img src="./img/icon/icon_twitter.png" alt="Instagram Icon">
+        </a>
+        <a href="#" class="text-decoration-none text-black">
+          <img src="./img/icon/icon_mail.png" alt="Mail Icon">
+        </a>
+        <a href="#" class="text-decoration-none text-black">
+          <img src="./img/icon/icon_twitch.png" alt="Twitch Icon">
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <p class="roboto-light">Copyright Binar 2022</p>
+      <a href="#">
+        <img src="./img/logo.png" alt="Brand Logo">
+      </a>
+    </div>
+  </footer>
+
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!-- End Jquery -->
+
+  <!-- Owl Carousel -->
+  <script src="./owlcarousel/owl.carousel.min.js"></script>
+  <!-- End Owl Corousel -->
+
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+    integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- End Bootstrap -->
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- End AOS Library -->
+
+  <script>
+    const navbar = document.getElementById('navbar');
+
+    // Initialize AOS
+    AOS.init();
+
+    // Add box shadow to navbar when user scrolls down
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('box-shadow-high');
+      } else {
+        navbar.classList.remove('box-shadow-high');
+      }
+    });
+
+    // Initialize Owl Corousel
+    $(document).ready(function () {
+      var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        center: true,
+        loop: true,
+        margin: 30,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          1000: {
+            items: 2
+          }
+        }
+      })
+      $('.arrow-next').click(function () {
+        owl.trigger('next.owl.carousel');
+      })
+      $('.arrow-prev').click(function () {
+        owl.trigger('prev.owl.carousel');
+      })
+    });
+
+  </script>
+</body>
+
+</html>
