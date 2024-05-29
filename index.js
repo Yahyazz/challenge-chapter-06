@@ -6,6 +6,7 @@ import Users from './src/models/UserModel.js';
 import ApiCarsRoute from './src/routes/api/ApiCarsRoute.js';
 import CarsRoute from './src/routes/CarsRoute.js';
 import UsersRoute from './src/routes/UsersRoute.js';
+import AuthRoute from './src/routes/AuthRoute.js';
 import session from 'express-session';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
 app.use(ApiCarsRoute);
 app.use(CarsRoute);
 app.use(UsersRoute);
+app.use(AuthRoute);
 
 app.set('view engine', 'ejs');
 

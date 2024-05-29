@@ -30,22 +30,23 @@ DELETE http://localhost:8000/books/2
 # Auth Test
 ###
 GET http://localhost:8000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJpYXQiOjE3MTY5Njg0MzYsImV4cCI6MTcxNjk2ODQ5Nn0.vEe1Tw5bZ-ReHHrM6XRHs_vDZS83vQXdqKnn3Irp2pQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiSmFuZUBnbWFpbC5jb20iLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcxNjk3ODM2NCwiZXhwIjoxNzE2OTc4NDI0fQ.tiwB9pgNKN3Sfus9nfgLjnPd5B7t_-VTxJnI3c_Gi8c
 
 ###
 GET http://localhost:8000/users/b33d92fc-15d3-4932-805c-904529926d65
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJpYXQiOjE3MTY5NjU1MTIsImV4cCI6MTcxNjk2NTU3Mn0.FJBxHAutg_LtfcpUTOQt6fLQqzINSZuBrZvlfKt7SRE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiSmFuZUBnbWFpbC5jb20iLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcxNjk3NzkyMCwiZXhwIjoxNzE2OTc3OTgwfQ.9Y1dnEQQ7llohSJ-JevoaSXMdwR35xckQrR26EyYLa8
 
 ###
 POST http://localhost:8000/users/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsIm5hbWUiOiJNZW1iZXIgZHVhIiwiZW1haWwiOiJtZW1iZXIyQGdtYWlsLmNvbSIsImlhdCI6MTcxNjk3NTYwNCwiZXhwIjoxNzE2OTc1NjY0fQ.93ZN3KplhWf34E5fsj58cFQFhRrX5GjE_5bdYTWoQeM
 Content-Type: application/json
 
 {
-    "name": "Member baru",
-    "email": "member@gmail.com",
+    "name": "Member dua",
+    "email": "member2@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "admin"
+    "role": "member"
 }
 
 ###
@@ -62,6 +63,9 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:8000/users/delete/ee2987d1-0212-40b6-845d-98279ddc8025
+
+###
+GET http://localhost:8000/token
 
 
 ###
@@ -80,16 +84,13 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email": "john@gmail.com",
+    "email": "jane@gmail.com",
     "password": "123456"
 }
-
-###
-GET http://localhost:8000/token
 
 ###
 DELETE http://localhost:8000/logout
 
 ###
 GET http://localhost:8000/whoami
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiSmFuZUBnbWFpbC5jb20iLCJpYXQiOjE3MTY5Njg0OTUsImV4cCI6MTcxNjk2ODU1NX0.OcszmLfjzTBrqccCCktA3BzcgyBnb9QWy_F8jtJ4vRo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiSmFuZUBnbWFpbC5jb20iLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcxNjk3ODA0MCwiZXhwIjoxNzE2OTc4MTAwfQ.2dDaVppUpXfjZK5rMG2rgIdXyl96lQZG20iY00OYAyc
