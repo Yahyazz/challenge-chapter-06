@@ -51,6 +51,21 @@ const Cars = db.define(
         notEmpty: true,
       },
     },
+    createdBy: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    updatedBy: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    isDeleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    deletedBy: {
+      type: DataTypes.STRING,
+    },
   },
   {
     freezeTableName: true,
