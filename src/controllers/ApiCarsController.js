@@ -1,5 +1,5 @@
-import Cars from '../models/CarsModel.js';
-import Users from '../models/UserModel.js';
+import Cars from '../models/cars.js';
+import Users from '../models/user.js';
 import cloudinary from '../config/cloudinary.js';
 import { Op } from 'sequelize';
 
@@ -7,32 +7,15 @@ export const getAllCarsApi = async (req, res) => {
   try {
     let response;
     if (req.role === 'superadmin') {
-      response = await Cars.findAll({
-        include: [
-          {
-            model: Users,
-          },
-        ],
-      });
+      response = await Cars.findAll();
     } else if (req.role === 'admin') {
       response = await Cars.findAll({
         where: {
-          userId: req.userId,
+          createdById: req.userId,
         },
-        include: [
-          {
-            model: Users,
-          },
-        ],
       });
     } else {
-      response = await Cars.findAll({
-        include: [
-          {
-            model: Users,
-          },
-        ],
-      });
+      response = await Cars.findAll();
     }
     res.status(200).json(response);
   } catch (error) {
@@ -48,39 +31,31 @@ export const getCarByIdApi = async (req, res) => {
       },
     });
     if (!carData) return res.status(404).json({ msg: 'Car not found' });
+
     let response;
     if (req.role === 'superadmin') {
       response = await Cars.findOne({
         where: {
           id: carData.id,
         },
-        include: [
-          {
-            model: Users,
-          },
-        ],
       });
     } else if (req.role === 'admin') {
+      if (carData.createdById !== req.userId)
+        return res
+          .status(403)
+          .json({
+            msg: 'You are not Authorized. You can only view data that you create yourself.',
+          });
       response = await Cars.findOne({
         where: {
-          [Op.and]: [{ userId: req.userId }, { id: carData.id }],
+          [Op.and]: [{ createdById: req.userId }, { id: carData.id }],
         },
-        include: [
-          {
-            model: Users,
-          },
-        ],
       });
     } else {
       response = await Cars.findOne({
         where: {
           id: carData.id,
         },
-        include: [
-          {
-            model: Users,
-          },
-        ],
       });
     }
     res.status(200).json(response);
@@ -91,14 +66,24 @@ export const getCarByIdApi = async (req, res) => {
 
 export const createCarApi = async (req, res) => {
   if (req.role !== 'superadmin' && req.role !== 'admin')
-    return res.status(403).json({ msg: 'You are not Authorized' });
+    return res.status(403).json({ msg: 'You are not Authorized. You must be an admin.' });
+
   const fileBase64 = req.file.buffer.toString('base64');
   const file = `data:${req.file.mimetype};base64,${fileBase64}`;
   let imgUrl = '';
-  const createdBy = req.userId;
-  const updatedBy = req.userId;
-  const isDeleted = false;
-  const userId = req.userId;
+
+  const userData = await Users.findOne({
+    attributes: ['id', 'uuid', 'name', 'email', 'role', 'refresh_token'],
+    where: {
+      id: req.userId,
+    },
+  });
+
+  const createdById = req.userId;
+  const createdBy = userData.name;
+  const updatedById = req.userId;
+  const updatedBy = userData.name;
+
   await cloudinary.uploader.upload(file, function (err, result) {
     if (!!err) {
       console.log(err);
@@ -110,11 +95,8 @@ export const createCarApi = async (req, res) => {
     imgUrl = result.url;
   });
 
-  // console.log(req.body);
-  // console.log(imgUrl);
-  // console.log({ ...req.body, imgUrl, userId, createdBy });
   try {
-    await Cars.create({ ...req.body, imgUrl, userId, createdBy, updatedBy, isDeleted });
+    await Cars.create({ ...req.body, imgUrl, createdById, createdBy, updatedById, updatedBy });
 
     req.session.message = {
       type: 'success',
@@ -132,27 +114,43 @@ export const createCarApi = async (req, res) => {
 
 export const updateCarApi = async (req, res) => {
   if (req.role !== 'superadmin' && req.role !== 'admin')
-    return res.status(403).json({ msg: 'You are not Authorized' });
+    return res.status(403).json({ msg: 'You are not Authorized. You must be an admin.' });
+
   const isWithFile = req.file;
-  console.log(isWithFile);
+
   const carData = await Cars.findOne({
     where: {
       uuid: req.params.id,
     },
   });
   if (!carData) return res.status(404).json({ msg: 'Car not found' });
+  if (req.role === 'admin' && carData.createdById !== req.userId)
+    return res
+      .status(403)
+      .json({ msg: 'You are not Authorized. You can only update data that you create yourself.' });
+  if (carData.isDeleted)
+    return res.json({ msg: 'You cannot update the data because the data has been deleted.' });
+
+  const userData = await Users.findOne({
+    attributes: ['id', 'uuid', 'name', 'email', 'role', 'refresh_token'],
+    where: {
+      id: req.userId,
+    },
+  });
+
+  const updatedById = req.userId;
+  const updatedBy = userData.name;
+
   if (isWithFile) {
     const fileBase64 = req.file.buffer.toString('base64');
     const file = `data:${req.file.mimetype};base64,${fileBase64}`;
     let imgUrl = '';
-    const updatedBy = req.userId;
-    const userId = req.userId;
 
     await cloudinary.uploader.upload(file, function (err, result) {
       if (!!err) {
         console.log(err);
         return res.status(400).json({
-          message: 'Gagal upload file!',
+          message: 'Can not upload file!',
         });
       }
       console.log(result.url);
@@ -162,7 +160,7 @@ export const updateCarApi = async (req, res) => {
     try {
       if (req.role === 'superadmin') {
         await Cars.update(
-          { ...req.body, imgUrl, userId, updatedBy },
+          { ...req.body, imgUrl, updatedById, updatedBy },
           {
             where: {
               id: carData.id,
@@ -170,13 +168,11 @@ export const updateCarApi = async (req, res) => {
           }
         );
       } else if (req.role === 'admin') {
-        if (carData.userId !== req.userId)
-          return res.status(403).json({ msg: 'You are not Authorized' });
         await Cars.update(
-          { ...req.body, imgUrl, userId, updatedBy },
+          { ...req.body, imgUrl, updatedById, updatedBy },
           {
             where: {
-              [Op.and]: [{ userId: req.userId }, { id: carData.id }],
+              [Op.and]: [{ createdById: req.userId }, { id: carData.id }],
             },
           }
         );
@@ -198,7 +194,7 @@ export const updateCarApi = async (req, res) => {
     try {
       if (req.role === 'superadmin') {
         await Cars.update(
-          { ...req.body, userId, updatedBy },
+          { ...req.body, updatedById, updatedBy },
           {
             where: {
               id: carData.id,
@@ -206,10 +202,8 @@ export const updateCarApi = async (req, res) => {
           }
         );
       } else if (req.role === 'admin') {
-        if (carData.userId !== req.userId)
-          return res.status(403).json({ msg: 'You are not Authorized' });
         await Cars.update(
-          { ...req.body, userId, updatedBy },
+          { ...req.body, updatedById, updatedBy },
           {
             where: {
               [Op.and]: [{ userId: req.userId }, { id: carData.id }],
@@ -235,20 +229,30 @@ export const updateCarApi = async (req, res) => {
 
 export const deleteCarApi = async (req, res) => {
   if (req.role !== 'superadmin' && req.role !== 'admin')
-    return res.status(403).json({ msg: 'You are not Authorized' });
+    return res.status(403).json({ msg: 'You are not Authorized. You must be an admin.' });
   const carData = await Cars.findOne({
     where: {
       uuid: req.params.id,
     },
   });
   if (!carData) return res.status(404).json({ msg: 'Car not found' });
+
+  const userData = await Users.findOne({
+    attributes: ['id', 'uuid', 'name', 'email', 'role', 'refresh_token'],
+    where: {
+      id: req.userId,
+    },
+  });
+
   const isDeleted = true;
-  const deletedBy = req.userId;
-  const userId = req.userId;
+  const deletedById = req.userId;
+  const deletedBy = userData.name;
+  const deletedAt = new Date();
+
   try {
     if (req.role === 'superadmin') {
       await Cars.update(
-        { ...req.body, deletedBy, isDeleted, userId },
+        { ...req.body, deletedById, deletedBy, isDeleted, deletedAt },
         {
           where: {
             id: carData.id,
@@ -256,13 +260,15 @@ export const deleteCarApi = async (req, res) => {
         }
       );
     } else if (req.role === 'admin') {
-      if (carData.userId !== req.userId)
-        return res.status(403).json({ msg: 'You are not Authorized' });
+      if (carData.createdById !== req.userId)
+        return res.status(403).json({
+          msg: 'You are not Authorized. You can only delete data that you create yourself.',
+        });
       await Cars.update(
-        { ...req.body, deletedBy, isDeleted, userId },
+        { ...req.body, deletedById, deletedBy, isDeleted, deletedAt },
         {
           where: {
-            [Op.and]: [{ userId: req.userId }, { id: carData.id }],
+            [Op.and]: [{ createdById: req.userId }, { id: carData.id }],
           },
         }
       );

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import Users from '../models/UserModel.js';
+import Users from '../models/user.js';
 
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -9,6 +9,7 @@ export const verifyToken = (req, res, next) => {
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
     if (err) return res.sendStatus(403);
     req.userId = decoded.userId;
+    req.name = decoded.name;
     req.email = decoded.email;
     req.role = decoded.role;
     next();
