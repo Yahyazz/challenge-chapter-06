@@ -1,39 +1,34 @@
-# Binar: Challenge 05
+# REST API - Car Management API
+by Yahya Zakaria
 
-- Mulai modifikasi file `server/index.js` apabila ingin membuat HTTP server.
-- Mulai modifikasi folder `public` apabila ingin memodifikasi HTML.
+Build using express.
 
-# `Binar` class
+## Installation
 
-Class ini berisi 1 static method saja, yang berfungsi untuk mengambil data mobil dari internet.
+Use npm -install to install all depedencies
 
-```typescript
-interface Car {
-  id: string;
-  plate: string;
-  manufacture: string;
-  model: string;
-  image: string;
-  rentPerDay: number;
-  capacity: number;
-  description: string;
-  transmission: string;
-  available: boolean;
-  type: string;
-  year: string;
-  options: Array<string>;
-  specs: Array<string>;
-}
-
-interface Binar {
-  listCars(filterer: (car: Car) => boolean): Array<Car>;
-}
+```bash
+npm -install
 ```
 
-Method `listCars` ini akan menerima fungsi yang mana harus mengembalikan `boolean` sebagai nilainya.
-Fungsi ini akan dijalankan untuk masing-masing item di dalam list of cars, yang mana jika nilainya `true`,
-maka akan ditampilkan di dalam list tersebut.
+Use npm run dev to run the server
+```bash
+npm run dev
+```
 
-# Tips
+Use npx sequelize-cli db:migrate to migrate database
+```bash
+npx sequelize-cli db:migrate
+```
 
-Just, hack it bro!
+Use npx sequelize-cli db:seed:all to seed the data
+```bash
+npx sequelize-cli db:seed:all
+```
+
+## API Documentation
+[Click here](https://documenter.getpostman.com/view/11455915/2sA3QwcA48) for the API Documentation 
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
